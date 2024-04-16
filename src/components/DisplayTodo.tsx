@@ -24,7 +24,7 @@ export default function DisplayTodo() {
 
   return (
     <div className="space-y-4">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row justify-between items-center">
         <Typography variant="h4">Your Todos</Typography>
 
         <FormControlLabel
@@ -61,9 +61,9 @@ function TodoItem({ todo }: { todo: Todo; index: number }) {
   return (
     <Box
       key={todo.id}
-      className="flex flex-col lg:flex-row justify-between items-center my-1 p-1 rounded-md bg-white gap-4 "
+      className="flex flex-col md:flex-row justify-between items-center my-1 p-1 rounded-md bg-white gap-4"
     >
-      <div className="flex items-center gap-2 lg:w-2/3">
+      <div className="flex items-center gap-2 md:w-full lg:w-2/3">
         <Checkbox
           checked={todo.isCompleted}
           onChange={() => {
@@ -89,7 +89,7 @@ function TodoItem({ todo }: { todo: Todo; index: number }) {
                 setUpdatedText(e.target.value);
               }}
               value={updatedText}
-              className="w-full lg:w-auto"
+              className="w-full"
             />
 
             <Button
@@ -119,7 +119,7 @@ function TodoItem({ todo }: { todo: Todo; index: number }) {
                 textDecoration: todo.isCompleted ? "line-through" : "none",
                 color: todo.isCompleted ? "gray" : "black",
               }}
-              className="w-full lg:w-auto"
+              className="w-full"
             >
               {todo.text}
             </Typography>
@@ -136,7 +136,7 @@ function TodoItem({ todo }: { todo: Todo; index: number }) {
         )}
       </div>
 
-      <div className="flex justify-center lg:justify-end">
+      <div className="flex justify-center md:justify-end">
         <Button
           variant="contained"
           color="error"
